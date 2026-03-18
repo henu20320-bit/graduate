@@ -1,0 +1,38 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+.venv*/
+venv/
+env/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Backend runtime files
+bird-observation-system/backend/uploads/*
+!bird-observation-system/backend/uploads/.gitkeep
+bird-observation-system/backend/outputs/*
+!bird-observation-system/backend/outputs/.gitkeep
+bird-observation-system/backend/*.db
