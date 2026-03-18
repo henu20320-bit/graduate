@@ -1,0 +1,30 @@
+output_csv: ../experiments/results/csv/comparison_summary.csv
+
+experiments:
+  - name: yolov8_baseline
+    type: yolov8
+    model: ../backend/weights/yolov8n.pt
+    data: ../datasets/data.yaml
+    project: ../experiments/results
+    run_name: yolov8_baseline
+    epochs: 100
+    imgsz: 640
+    batch: 16
+    device: cpu
+
+  - name: yolov5_baseline
+    type: yolov5
+    repo_path: ../third_party/yolov5
+    weights: yolov5s.pt
+    data: ../datasets/data.yaml
+    project: ../experiments/results
+    run_name: yolov5_baseline
+    epochs: 100
+    imgsz: 640
+    batch: 16
+    device: cpu
+
+  - name: faster_rcnn_baseline
+    type: custom_command
+    train_command: python train_faster_rcnn.py --data ../datasets/data.yaml --output ../experiments/results/faster_rcnn_baseline
+    metrics_file: ../experiments/results/faster_rcnn_baseline/metrics.json

@@ -1,4 +1,4 @@
-﻿# Bird Observation System
+# Bird Observation System
 
 ## Project Structure
 
@@ -11,25 +11,30 @@ bird-observation-system/
 └── docs/
 ```
 
-## Phase 1 Scope
+## Current Scope
 
-Phase 1 focuses on:
+The project currently includes:
 
-- backend project skeleton
-- configuration management
-- database models and initialization
-- basic REST API framework
+- backend API, database, detection, alert, and statistics modules
+- frontend dashboard skeleton for visualization and demonstration
+- experiment scripts for YOLOv8 training, validation, testing, comparison, and plotting
 
 ## Quick Start
 
 ```bash
 cd backend
+.\.venv310\Scripts\activate
 pip install -r requirements.txt
 python scripts/init_db.py
 python scripts/seed_data.py
 uvicorn app.main:app --reload
 ```
 
-## Next Phase
+## Experiment Module
 
-Phase 2 will add the YOLOv8 inference service, image/video/camera detection pipeline, and result persistence.
+See `experiments/README.md` for:
+
+- dataset template
+- training and evaluation scripts
+- comparison experiment runner
+- CSV export and plotting scripts

@@ -1,0 +1,9 @@
+path: ../datasets/birds
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: sparrow
+  1: egret
+  2: black_faced_spoonbill

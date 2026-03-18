@@ -1,0 +1,14 @@
+data: ../datasets/data.yaml
+model: ../backend/weights/yolov8n.pt
+project: ../experiments/results
+name: yolov8_baseline
+epochs: 100
+imgsz: 640
+batch: 16
+device: cpu
+workers: 4
+patience: 30
+optimizer: auto
+seed: 42
+cache: false
+verbose: true

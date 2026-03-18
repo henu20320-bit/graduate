@@ -1,4 +1,4 @@
-﻿# Python
+# Python
 __pycache__/
 *.py[cod]
 *.pyo
@@ -36,3 +36,13 @@ bird-observation-system/backend/uploads/*
 bird-observation-system/backend/outputs/*
 !bird-observation-system/backend/outputs/.gitkeep
 bird-observation-system/backend/*.db
+
+# Local datasets
+bird-observation-system/datasets/**
+!bird-observation-system/datasets/.gitkeep
+
+# Local experiment outputs
+bird-observation-system/experiments/results/**
+!bird-observation-system/experiments/results/csv/.gitkeep
+!bird-observation-system/experiments/results/figures/.gitkeep
+!bird-observation-system/experiments/results/logs/.gitkeep
