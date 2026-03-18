@@ -1,10 +1,13 @@
 ﻿from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
+from sqlalchemy.orm import Session
 
+from app.api.deps import get_db
 from app.core.config import get_settings
 from app.schemas.common import ApiResponse
 from app.schemas.inference import DetectionResult
-from app.services import get_bird_detection_service
+from app.services import get_bird_detection_service, get_detection_persistence_service
 from app.services.bird_detection_service import BirdDetectionService
+from app.services.detection_persistence_service import DetectionPersistenceService
 from app.utils.media import save_upload_file
 from app.utils.response import success_response
 
@@ -17,10 +20,13 @@ async def detect_image(
     file: UploadFile = File(...),
     weight_path: str | None = None,
     service: BirdDetectionService = Depends(get_bird_detection_service),
+    persistence_service: DetectionPersistenceService = Depends(get_detection_persistence_service),
+    db: Session = Depends(get_db),
 ) -> ApiResponse[DetectionResult]:
     try:
         image_path, original_name = await save_upload_file(file, settings.uploads_dir)
         result = service.detect_image(image_path=image_path, weight_path=weight_path, source_name=original_name)
+        result = persistence_service.save_detection_result(db, result)
         return success_response(result, message='Image detection completed successfully.')
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
@@ -31,10 +37,13 @@ async def detect_video(
     file: UploadFile = File(...),
     weight_path: str | None = None,
     service: BirdDetectionService = Depends(get_bird_detection_service),
+    persistence_service: DetectionPersistenceService = Depends(get_detection_persistence_service),
+    db: Session = Depends(get_db),
 ) -> ApiResponse[DetectionResult]:
     try:
         video_path, original_name = await save_upload_file(file, settings.uploads_dir)
         result = service.detect_video(video_path=video_path, weight_path=weight_path, source_name=original_name)
+        result = persistence_service.save_detection_result(db, result)
         return success_response(result, message='Video detection completed successfully.')
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc

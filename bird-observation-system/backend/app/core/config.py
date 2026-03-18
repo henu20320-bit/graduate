@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     camera_frame_interval: int = 5
 
     rare_confidence_threshold: float = 0.7
+    medium_confidence_threshold: float = 0.6
     sustained_occurrence_minutes: int = 30
     sustained_occurrence_threshold: int = 3
 
