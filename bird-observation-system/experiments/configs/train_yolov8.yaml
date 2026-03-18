@@ -1,6 +1,6 @@
-data: ../datasets/data.yaml
-model: ../backend/weights/yolov8n.pt
-project: ../experiments/results
+data: ../../datasets/data.yaml
+model: yolov8n.pt
+project: ../results
 name: yolov8_baseline
 epochs: 100
 imgsz: 640
