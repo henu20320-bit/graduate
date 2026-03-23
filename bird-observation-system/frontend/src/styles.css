@@ -31,6 +31,81 @@ a {
   min-height: 100vh;
 }
 
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 28px;
+  border-bottom: 1px solid rgba(217, 226, 236, 0.9);
+  background: rgba(244, 247, 251, 0.88);
+  backdrop-filter: blur(12px);
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 68px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2f6f5f, #1f5f8b);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.app-brand-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.app-brand-subtitle {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.app-nav-link {
+  padding: 10px 16px;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.app-nav-link.is-active {
+  border-color: rgba(47, 111, 95, 0.26);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
 .page-shell {
   min-height: 100vh;
   padding: 28px;
@@ -46,6 +121,13 @@ a {
   align-items: flex-end;
   gap: 16px;
   margin-bottom: 24px;
+}
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .page-title {
@@ -121,6 +203,38 @@ a {
   padding: 18px;
 }
 
+.table-panel {
+  padding: 18px;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.table-toolbar-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.table-toolbar-meta {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.table-pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+}
+
+.muted-text {
+  color: var(--text-secondary);
+}
+
 .alert-highlight {
   margin-bottom: 16px;
   padding: 16px 18px;
@@ -164,6 +278,12 @@ a {
 }
 
 @media (max-width: 960px) {
+  .app-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 18px;
+  }
+
   .page-shell {
     padding: 18px;
   }

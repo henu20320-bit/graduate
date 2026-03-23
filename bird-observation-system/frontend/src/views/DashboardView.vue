@@ -47,9 +47,12 @@
           <div class="alert-highlight" v-if="latestAlert">
             <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
               <div class="alert-highlight-title">{{ latestAlert.title }} · {{ latestAlert.species_name }}</div>
-              <el-tag :class="['level-tag', `is-${latestAlert.alert_level}`]" effect="dark">
-                {{ latestAlert.alert_level.toUpperCase() }}
-              </el-tag>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <el-tag v-if="latestAlert.sustained_occurrence" type="danger">持续出现</el-tag>
+                <el-tag :class="['level-tag', `is-${latestAlert.alert_level}`]" effect="dark">
+                  {{ latestAlert.alert_level.toUpperCase() }}
+                </el-tag>
+              </div>
             </div>
             <p class="alert-highlight-text">{{ latestAlert.message }}</p>
           </div>
@@ -66,6 +69,12 @@
             <el-table-column prop="confidence" label="置信度" width="120">
               <template #default="scope">
                 {{ Number(scope.row.confidence || 0).toFixed(2) }}
+              </template>
+            </el-table-column>
+            <el-table-column label="特征" width="120">
+              <template #default="scope">
+                <el-tag v-if="scope.row.sustained_occurrence" type="danger">持续出现</el-tag>
+                <span v-else class="muted-text">普通</span>
               </template>
             </el-table-column>
             <el-table-column prop="detected_at" label="检测时间" min-width="180" />
@@ -184,6 +193,7 @@ function normalizeAlertRows(alertResponse, latestResponse) {
     alert_level: item.alert_level,
     confidence: latestResponse?.data?.confidence || 0,
     detected_at: item.created_at,
+    sustained_occurrence: Boolean(item.sustained_occurrence),
   }))
 
   if (mappedRows.length === 0 && latestResponse?.data) {

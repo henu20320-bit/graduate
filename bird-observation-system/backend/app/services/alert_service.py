@@ -23,6 +23,7 @@ class AlertService:
 
         statement = select(BirdSpecies).where(
             or_(
+                func.lower(BirdSpecies.model_class_name) == normalized_name,
                 func.lower(BirdSpecies.chinese_name) == normalized_name,
                 func.lower(BirdSpecies.english_name) == normalized_name,
                 func.lower(BirdSpecies.scientific_name) == normalized_name,

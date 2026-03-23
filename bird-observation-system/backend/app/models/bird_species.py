@@ -10,11 +10,13 @@ class BirdSpecies(Base):
     __tablename__ = 'bird_species'
     __table_args__ = (
         Index('ix_bird_species_chinese_name', 'chinese_name'),
+        Index('ix_bird_species_model_class_name', 'model_class_name'),
         Index('ix_bird_species_is_rare', 'is_rare'),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     chinese_name: Mapped[str] = mapped_column(String(100), nullable=False, unique=True)
+    model_class_name: Mapped[str | None] = mapped_column(String(100), nullable=True, unique=True)
     english_name: Mapped[str | None] = mapped_column(String(100), nullable=True)
     scientific_name: Mapped[str | None] = mapped_column(String(150), nullable=True)
     category: Mapped[str | None] = mapped_column(String(100), nullable=True)

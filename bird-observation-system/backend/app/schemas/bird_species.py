@@ -5,6 +5,7 @@ from app.schemas.common import ORMBaseSchema
 
 class BirdSpeciesBase(ORMBaseSchema):
     chinese_name: str
+    model_class_name: str | None = None
     english_name: str | None = None
     scientific_name: str | None = None
     category: str | None = None
