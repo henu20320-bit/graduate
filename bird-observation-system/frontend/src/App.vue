@@ -11,6 +11,7 @@
 
       <nav class="app-nav">
         <router-link to="/" class="app-nav-link" exact-active-class="is-active">仪表盘</router-link>
+        <router-link to="/detect" class="app-nav-link" active-class="is-active">图片检测</router-link>
         <router-link to="/records" class="app-nav-link" active-class="is-active">检测记录</router-link>
         <router-link to="/alerts" class="app-nav-link" active-class="is-active">预警记录</router-link>
       </nav>
