@@ -1,0 +1,33 @@
+model_class_name,chinese_name_candidate,iucn_status,china_protection,system_alert_level,status,notes,scientific_name
+baiguding,白骨顶,LC,sanyou,medium,已初步确认,常见水鸟，分类按白骨顶处理，国内通常按三有动物理解，建议结合最新名录复核,Fulica atra
+bailu,白鹭,LC,sanyou,medium,已初步确认,常见涉禽，当前按白鹭（Egretta garzetta）处理，国内保护管理中可按三有动物理解；需避免与大白鹭或黄嘴白鹭等混称,Egretta garzetta
+baimeiya,白眉鸭,unknown,none,none,待核对,中文名存在歧义，暂未可靠匹配到统一物种名称，建议结合原始样本复核,unknown
+banzuiya,斑嘴鸭,LC,sanyou,medium,已确认,常见水鸟，鸭类，国内通常按三有动物处理,Anas zonorhyncha
+beihongweiqu,北红尾鸲,LC,sanyou,medium,已确认,常见林鸟，雀形目小型鸣禽，国内通常按三有动物处理,Phoenicurus auroreus
+canglu,苍鹭,LC,national_II,medium,已确认,常见大型涉禽，全球无危，但国内保护等级较高，按国家二级重点保护处理,Ardea cinerea
+chijingya,赤颈鸭,LC,sanyou,medium,已初步确认,常见水鸟，鸭类，中文名称按赤颈鸭处理，国内通常按三有动物理解,Mareca penelope
+dashanque,大山雀,LC,sanyou,medium,已确认,常见林鸟，雀形目鸣禽，国内通常按三有动物处理,Parus major
+fanzuiyu,反嘴鹬,LC,sanyou,medium,已确认,涉禽，常见湿地和滩涂鸟类，国内通常按三有动物处理,Recurvirostra avosetta
+heichichangjiaoyu,黑翅长脚鹬,LC,sanyou,medium,已确认,涉禽，湿地观测常见鸟类，国内通常按三有动物处理,Himantopus himantopus
+heishuiji,黑水鸡,LC,sanyou,medium,已确认,常见水鸟，湿地和水域边缘活动，国内通常按三有动物处理,Gallinula chloropus
+hongxielanweiqu,红胁蓝尾鸲,LC,sanyou,medium,已确认,林鸟，小型鸣禽，国内通常按三有动物处理,Tarsiger cyanurus
+huangyaoliuying,黄腰柳莺,LC,sanyou,medium,已确认,林鸟，常见迁徙小型鸣禽，国内通常按三有动物处理,Phylloscopus proregulus
+huanjingheng,环颈鸻,LC,sanyou,medium,已初步确认,涉禽，中文名称按环颈鸻处理，常见于滩涂和湿地，国内通常按三有动物理解,Charadrius alexandrinus
+huitouwu,灰头鹀,LC,sanyou,medium,已初步确认,林鸟或灌丛鸟类，中文名称按灰头鹀处理，国内通常按三有动物理解,Emberiza fucata
+jiyu,矶鹬,LC,sanyou,medium,已确认,涉禽，常见于河岸和水边，国内通常按三有动物处理,Actitis hypoleucos
+luowenya,罗纹鸭,NT,sanyou,medium,已初步确认,水鸟，鸭类，IUCN等级较常见种更高，中文名称按罗纹鸭处理，国内通常按三有动物理解,Mareca falcata
+lvchiya,绿翅鸭,LC,sanyou,medium,已确认,常见水鸟，鸭类，国内通常按三有动物处理,Anas crecca
+lvtouya,绿头鸭,LC,sanyou,medium,已确认,常见水鸟，鸭类，国内通常按三有动物处理,Anas platyrhynchos
+pizuiya,琵嘴鸭,LC,sanyou,medium,已确认,常见水鸟，鸭类，国内通常按三有动物处理,Spatula clypeata
+putongluci,普通鸬鹚,LC,sanyou,medium,已初步确认,水鸟，鸬鹚科，常见于湖泊和近海，国内通常按三有动物理解,Phalacrocorax carbo
+shanbanjiu,山斑鸠,LC,sanyou,medium,已确认,常见林鸟或农田鸟类，国内通常按三有动物处理,Streptopelia orientalis
+siguanglveniao,丝光椋鸟,LC,sanyou,medium,已初步确认,林鸟或城郊鸟类，中文名称按丝光椋鸟处理，国内通常按三有动物理解,Spodiopsar sericeus
+wudong,乌鸫,LC,sanyou,medium,已初步确认,常见林鸟，乌鸫类群近年有分类讨论，先按常用分类处理,Turdus merula
+xique,喜鹊,LC,sanyou,medium,已确认,常见留鸟，雀形目，国内通常按三有动物处理,Pica pica
+yanque,岩鹊,unknown,none,none,待核对,中文名称可能存在歧义，暂未可靠锁定对应标准物种，建议结合原始样本复核,unknown
+yelu,夜鹭,LC,sanyou,medium,已确认,常见涉禽，湿地和水边夜行性鸟类，国内通常按三有动物处理,Nycticorax nycticorax
+yinhouchangweishanque,银喉长尾山雀,LC,sanyou,medium,已确认,林鸟，小型雀形目鸣禽，国内通常按三有动物处理,Aegithalos glaucogularis
+yuanyang,鸳鸯,LC,national_II,medium,已确认,水鸟，国内保护等级较高，按国家二级重点保护处理,Aix galericulata
+zhenweiya,针尾鸭,LC,sanyou,medium,已确认,常见水鸟，鸭类，国内通常按三有动物处理,Anas acuta
+zhujingbanjiu,珠颈斑鸠,LC,sanyou,medium,已确认,常见留鸟，城郊和农田环境常见，国内通常按三有动物处理,Spilopelia chinensis
+zongbeibolao,棕背伯劳,LC,sanyou,medium,已确认,常见林鸟或灌丛鸟类，伯劳科，国内通常按三有动物处理,Lanius schach

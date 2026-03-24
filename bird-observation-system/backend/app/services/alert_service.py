@@ -31,17 +31,32 @@ class AlertService:
         )
         return db.scalar(statement)
 
+    def get_base_attention_level(self, species: BirdSpecies | None) -> str:
+        if species is None:
+            return 'none'
+
+        if species.attention_level in {'high', 'medium'}:
+            return species.attention_level
+
+        protection_type = (species.china_protection_type or 'none').lower()
+        if protection_type == 'national_i':
+            return 'high'
+        if protection_type == 'national_ii':
+            return 'medium'
+        return 'none'
+
     def evaluate_alert_level(self, species: BirdSpecies | None, confidence: float, recent_alert_count: int = 0) -> str:
-        if species is None or not species.is_rare:
+        base_level = self.get_base_attention_level(species)
+        if species is None or base_level == 'none':
             return 'none'
 
         if confidence < self.settings.medium_confidence_threshold:
             return 'none'
 
-        if confidence < self.settings.rare_confidence_threshold:
-            return 'medium' if species.rare_level in {'high', 'medium'} else 'none'
+        if base_level == 'high' and confidence < self.settings.rare_confidence_threshold:
+            return 'medium'
 
-        level = 'high' if species.rare_level == 'high' else 'medium'
+        level = base_level
         if recent_alert_count >= self.settings.sustained_occurrence_threshold:
             level = 'high'
         return level
@@ -61,8 +76,11 @@ class AlertService:
         species_name = species.chinese_name or species.english_name or species.scientific_name or '未知鸟类'
         if recent_alert_count >= self.settings.sustained_occurrence_threshold:
             return f'{species_name} 在短时间内持续出现，当前置信度 {confidence:.2f}，请立即关注现场情况。'
+        protection_type = (species.china_protection_type or 'none').lower()
         if alert_level == 'high':
-            return f'检测到珍稀保护鸟类 {species_name}，当前置信度 {confidence:.2f}，请及时核查并记录。'
+            return f'检测到高关注保护鸟类 {species_name}，当前置信度 {confidence:.2f}，请及时核查并记录。'
+        if protection_type == 'national_ii':
+            return f'检测到国家二级重点保护鸟类 {species_name}，当前置信度 {confidence:.2f}，建议持续观察。'
         return f'检测到重点关注鸟类 {species_name}，当前置信度 {confidence:.2f}，建议持续观察。'
 
     def create_alert_record(
@@ -96,7 +114,7 @@ class AlertService:
             species_id=species.id,
             species_name=species.chinese_name or species.english_name or species.scientific_name or '未知鸟类',
             alert_level=alert_record.alert_level,
-            title='珍稀鸟类预警' if alert_record.alert_level == 'high' else '鸟类关注预警',
+            title='重点保护鸟类预警' if alert_record.alert_level == 'high' else '鸟类关注预警',
             message=alert_record.alert_message,
             confidence=detection_record.confidence,
             detected_at=detection_record.capture_time,

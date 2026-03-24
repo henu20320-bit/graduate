@@ -12,7 +12,7 @@ router = APIRouter()
 
 SUSTAINED_TEXT = '\u6301\u7eed\u51fa\u73b0'
 UNKNOWN_BIRD = '\u672a\u77e5\u9e1f\u7c7b'
-HIGH_TITLE = '\u73cd\u7a00\u9e1f\u7c7b\u9884\u8b66'
+HIGH_TITLE = '\u91cd\u70b9\u4fdd\u62a4\u9e1f\u7c7b\u9884\u8b66'
 MEDIUM_TITLE = '\u9e1f\u7c7b\u5173\u6ce8\u9884\u8b66'
 
 

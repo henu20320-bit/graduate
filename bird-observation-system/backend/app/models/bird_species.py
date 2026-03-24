@@ -12,6 +12,8 @@ class BirdSpecies(Base):
         Index('ix_bird_species_chinese_name', 'chinese_name'),
         Index('ix_bird_species_model_class_name', 'model_class_name'),
         Index('ix_bird_species_is_rare', 'is_rare'),
+        Index('ix_bird_species_china_protection_type', 'china_protection_type'),
+        Index('ix_bird_species_attention_level', 'attention_level'),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
@@ -20,6 +22,11 @@ class BirdSpecies(Base):
     english_name: Mapped[str | None] = mapped_column(String(100), nullable=True)
     scientific_name: Mapped[str | None] = mapped_column(String(150), nullable=True)
     category: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    iucn_status: Mapped[str] = mapped_column(String(20), nullable=False, default='unknown', server_default='unknown')
+    china_protection_type: Mapped[str] = mapped_column(
+        String(30), nullable=False, default='none', server_default='none'
+    )
+    attention_level: Mapped[str] = mapped_column(String(20), nullable=False, default='none', server_default='none')
     is_rare: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default='0')
     rare_level: Mapped[str] = mapped_column(String(20), nullable=False, default='none', server_default='none')
     description: Mapped[str | None] = mapped_column(Text, nullable=True)

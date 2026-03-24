@@ -9,6 +9,9 @@ class BirdSpeciesBase(ORMBaseSchema):
     english_name: str | None = None
     scientific_name: str | None = None
     category: str | None = None
+    iucn_status: str = 'unknown'
+    china_protection_type: str = 'none'
+    attention_level: str = 'none'
     is_rare: bool = False
     rare_level: str = 'none'
     description: str | None = None
