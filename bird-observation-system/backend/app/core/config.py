@@ -44,7 +44,16 @@ class Settings(BaseSettings):
     @computed_field
     @property
     def effective_database_url(self) -> str:
-        return self.mysql_database_url or self.database_url
+        if self.mysql_database_url:
+            return self.mysql_database_url
+
+        database_url = self.database_url
+        sqlite_prefix = 'sqlite:///'
+        if database_url.startswith(sqlite_prefix):
+            sqlite_path = database_url[len(sqlite_prefix) :]
+            if sqlite_path.startswith('./'):
+                return f"sqlite:///{(BASE_DIR / sqlite_path[2:]).as_posix()}"
+        return database_url
 
     @computed_field
     @property

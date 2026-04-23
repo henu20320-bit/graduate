@@ -28,7 +28,7 @@
 
       <el-table v-loading="loading" :data="filteredRecords" stripe style="width: 100%;">
         <el-table-column prop="id" label="编号" width="90" />
-        <el-table-column prop="species_name" label="鸟类名称" min-width="160" />
+        <el-table-column prop="species_name" label="鸟类名称" min-width="180" />
         <el-table-column prop="source_type" label="来源类型" width="110" />
         <el-table-column prop="confidence" label="置信度" width="120">
           <template #default="scope">
@@ -50,7 +50,12 @@
         <el-table-column prop="source_file" label="源文件" min-width="220" show-overflow-tooltip />
         <el-table-column label="结果图" width="120">
           <template #default="scope">
-            <el-link v-if="scope.row.result_image_path" :href="buildAssetUrl(scope.row.result_image_path)" target="_blank" type="primary">
+            <el-link
+              v-if="scope.row.result_image_path"
+              :href="buildAssetUrl(scope.row.result_image_path)"
+              target="_blank"
+              type="primary"
+            >
               查看结果
             </el-link>
             <span v-else class="muted-text">无</span>
@@ -104,7 +109,7 @@ function normalizeRecord(item) {
       item.species?.chinese_name ||
       item.species?.english_name ||
       item.species?.model_class_name ||
-      '未匹配物种',
+      '未匹配物种（当前权重可能仅识别为 bird）',
   }
 }
 
@@ -122,7 +127,20 @@ function buildAssetUrl(path) {
   if (path.startsWith('http://') || path.startsWith('https://')) {
     return path
   }
-  return `${window.location.origin}/${String(path).replace(/^\/+/, '')}`
+
+  const normalized = String(path).replace(/\\/g, '/')
+  if (normalized.startsWith('/outputs/') || normalized.startsWith('/uploads/')) {
+    return `${window.location.origin}${normalized}`
+  }
+  if (normalized.includes('/outputs/')) {
+    const fileName = normalized.split('/outputs/').pop()
+    return `${window.location.origin}/outputs/${fileName}`
+  }
+  if (normalized.includes('/uploads/')) {
+    const fileName = normalized.split('/uploads/').pop()
+    return `${window.location.origin}/uploads/${fileName}`
+  }
+  return `${window.location.origin}/${normalized.replace(/^\/+/, '')}`
 }
 
 async function loadRecords() {

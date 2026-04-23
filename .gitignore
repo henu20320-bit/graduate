@@ -58,3 +58,12 @@ bird-observation-system/experiments/results/**
 !bird-observation-system/experiments/results/csv/.gitkeep
 !bird-observation-system/experiments/results/figures/.gitkeep
 !bird-observation-system/experiments/results/logs/.gitkeep
+
+# Local docs/exports (submission artifacts)
+bird-observation-system-core-export*/
+system-core-code-*.zip
+bird-observation-system-core-code-*.zip
+thesis_work/
+wetland_bird_dataset/
+*.pptx
+*.docx

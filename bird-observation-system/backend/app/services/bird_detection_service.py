@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import threading
 import time
@@ -73,7 +73,7 @@ class BirdDetectionService:
             source_name=source_name,
             detections=detections,
             inference_time_ms=round(inference_time_ms, 2),
-            result_path=str(result_path.as_posix()),
+            result_path=f'/outputs/{result_path.name}',
         )
 
     def detect_image(
